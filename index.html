@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pomodoro Clock</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="title">
+  <h1>POMODORO CLOCK</h1></div>
+<div id="time-group">
+  <h3>Work Time</h3>
+  <button class="timeChanger" data-id="workPlus">+</button>
+  <span class="text">&nbsp;<span id="workTime" data-time="25">00 </span>&nbsp; minutes &nbsp;</span>
+  <button class="timeChanger" data-id="workMinus">-</button>
+</div>
+
+<div id="break-group">
+  <h3>Break Time</h3>
+  <button class="timeChanger" data-id="breakPlus">+</span></button>
+  <span class="text">&nbsp;<span id="breakTime" data-time="5">00 </span>&nbsp; minutes &nbsp;</span>
+  <button class="timeChanger" data-id="breakMinus">-</button>
+</div>
+
+<div id="radial-progress">
+  <div>
+    <div id="maskFull">
+      <div class="fill"></div>
+    </div>
+    <div id="maskHalf">
+      <div class="fill"></div>
+      <div id="fillFix"></div>
+    </div>
+    <div id="shadow"></div>
+  </div>
+  <div id="inset">
+    <span id="status"><h1>Start Working!</h1></span>
+    <span id="currentTime">00:00</span>
+  </div>
+</div>
+<div class="controlButtons">
+  <button id="start" data-current="start">START</button>
+  <button id="reset" data-current="reset">RESET</button>
+</div>
+<footer>
+  <p> Created by: <a href="http://codepen.io/kingjami/" target="_blank">kingJami</a></p>
+</footer>
+
+<script src="script.js">
+</script>
+</body>
+</html>
