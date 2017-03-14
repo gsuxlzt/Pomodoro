@@ -25,7 +25,8 @@ document.addEventListener("DOMContentLoaded", function() {
     r: 0,
     g: 100,
     b: 0,
-    rotation: 0
+    rotation: 0,
+    alarm : new Audio('assets/Alarm.mp3')
   }
 
   //function for checking if the time to be displayed is the break time or the work time
@@ -48,12 +49,14 @@ document.addEventListener("DOMContentLoaded", function() {
   //changes the timer from work to break and vice versa
   let changeTimer = () => {
     stopTimer();
+    variables.hasPlayed = true;
     variables.isWorking = !variables.isWorking;
     variables.startBtn.setAttribute('data-current', 'start');
     variables.startBtn.innerHTML = "START";
     variables.startBtn.style.backgroundColor = '#4CAF50';
     variables.resetBtn.disabled = false;
     addDisplay();
+    variables.alarm.play();
     reset();
   }
 
@@ -168,6 +171,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   //first function to call
   function loadAll() {
+    variables.alarm.loop = true;
     updateTime(variables.updatedTime);
     let status = document.getElementById('status');
     variables.statDisp = status;
@@ -175,6 +179,7 @@ document.addEventListener("DOMContentLoaded", function() {
       variables.changer[i].addEventListener('click', timeChange, false);
     }
     variables.startBtn.addEventListener('click', function() {
+      if (!variables.alarm.paused) variables.alarm.pause();
       addDisplay();
       startPause.call(this);
     });
